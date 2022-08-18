@@ -96,6 +96,8 @@ public class Lesson1 {
         String word3 = " s          word            ";
         System.out.println(word3.trim());
 
+        System.out.println("Новые изменения");
+
 
     }
 
