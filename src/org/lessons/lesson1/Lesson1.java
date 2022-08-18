@@ -97,6 +97,7 @@ public class Lesson1 {
         System.out.println(word3.trim());
 
         System.out.println("Новые изменения");
+        System.out.println("Новые изменения 2");
 
 
     }
