@@ -1,5 +1,7 @@
 package org.lessons.lesson2;
 
+import org.lessons.lesson3.Lesson3;
+
 public class Lesson2 {
     public static void main(String[] args) {
         int number1 = 11;
@@ -139,7 +141,10 @@ public class Lesson2 {
             if (index > 20) {
                 break;
             }
+            index++;
         }
+
+        System.out.println("lesson2 finish");
 
     }
 }
