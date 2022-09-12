@@ -1,5 +1,12 @@
 package org.lessons.lesson6;
 
+import org.lessons.lesson6.homework.advance.task1.*;
+import org.lessons.lesson6.homework.advance.task2.*;
+import org.lessons.lesson6.homework.base.Airplane;
+import org.lessons.lesson6.homework.base.Duck;
+import org.lessons.lesson6.homework.base.FlyException;
+import org.lessons.lesson6.homework.base.Flyable;
+
 public class Homework3 {
     public static void main(String[] args) {
         //Базовый уровень
@@ -23,6 +30,19 @@ public class Homework3 {
         // Ошибка: утка ранена
         // самолет летит
         // Ошибка: пассажиров в самолете меньше 0
+        Duck duckInjured = new Duck(true);
+        Duck duck = new Duck(false);
+        Airplane plane = new Airplane(10);
+        Airplane airplaneWithNoPassengers = new Airplane(-1);
+        Flyable[] flyables = {duck, duckInjured, plane, airplaneWithNoPassengers};
+
+        for (Flyable flyable : flyables) {
+            try {
+                flyable.fly();
+            } catch (FlyException e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
         //Продвинутый уровень
         //Задача №1
@@ -39,6 +59,20 @@ public class Homework3 {
         // роза: умееть пахнуть
         // роза: умеет цвести
         // папоротник: умеет цвести
+        Pine pine = new Pine();
+        Spruce spruce = new Spruce();
+        Rose rose = new Rose();
+        Fern fern = new Fern();
+        Smellable[] smellables = {pine, spruce, rose};
+        Bloomable[] bloomables = {rose, fern};
+
+        for (Smellable smellable : smellables) {
+            smellable.smell();
+        }
+
+        for (Bloomable bloomable : bloomables) {
+            bloomable.bloom();
+        }
 
 
         //Задача №2
@@ -54,6 +88,27 @@ public class Homework3 {
         // Ожидание вывода на экран:
         // Часы тикают
         // Ошибка: Часы сломались.
+        Watch watchBroken = new Watch(true);
+        Watch watch = new Watch(false);
+        Worker worker1 = new Worker(watch);
+        Worker worker2 = new Worker(watchBroken);
+        Worker[] workers1 = {worker1};
+        Worker[] workers2 = {worker2};
+        Shop shop1 = new Shop(workers1);
+        Shop shop2 = new Shop(workers2);
+        Shop[] shops = {shop1, shop2};
+        Brand brand = new Brand(shops);
+
+        for (Shop shop : brand.getShops()) {
+            for (Worker worker : shop.getWorkers()) {
+                try {
+                    worker.getWatch().tick();
+                } catch (WatchBrokenError e) {
+                    System.out.println("Ошибка: Часы сломались.");
+                }
+            }
+        }
+
 
         // Экспертный уровень:
         // Предыстория: Мы находимся в статистическом институте. Хочется понять уровень миграции между регионами за месяц.

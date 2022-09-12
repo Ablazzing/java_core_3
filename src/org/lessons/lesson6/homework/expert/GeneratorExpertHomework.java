@@ -1,4 +1,4 @@
-package org.lessons.lesson6.homework;
+package org.lessons.lesson6.homework.expert;
 
 
 import java.util.HashMap;
